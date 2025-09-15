@@ -1,0 +1,16 @@
+{
+  "name": "bank-app",
+  "version": "1.0.0",
+  "description": "Full bank-style app with KYC",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.6.7",
+    "form-data": "^4.0.0",
+    "bcrypt": "^5.1.0"
+  }
+}
